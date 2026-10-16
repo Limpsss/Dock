@@ -1,0 +1,36 @@
+n = 20
+def xd(n){
+    return n^2
+}
+
+i = 69
+while(i<72){
+    print(i)
+    i = i + 1
+}
+
+if(1==0){
+    print("if")
+}
+elif(1==2){
+    print("elif")
+}
+else{
+    print("else")
+}
+
+str = "abc"
+lst = ["x", "y", "z"]
+num = 3
+
+for(i=0, str){
+    print(i)
+}
+for(i=0, lst){
+    print(i)
+}
+for(i=0, num){
+    print(i)
+}
+
+print(n)

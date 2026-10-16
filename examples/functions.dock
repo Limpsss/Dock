@@ -1,0 +1,29 @@
+greeting = "hello"
+
+def greet(name){
+    print(greeting + " " + name)
+}
+
+def square(n){
+    return n^2
+}
+
+def factorial(n){
+    if(n <= 1){
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+def countdown(n){
+    while(n > 0){
+        print(n)
+        n = n - 1
+    }
+    print("liftoff!")
+}
+
+greet("world")
+print(square(7))
+print(factorial(5))
+countdown(3)

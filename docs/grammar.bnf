@@ -1,0 +1,55 @@
+<program>               ::= <statement_list>
+<statement_list>        ::= <statement> <statement_list> | <statement>
+<statement>             ::=
+                            <func_declare> |
+                            <for_loop> |
+                            <while_loop> |
+                            <if_statements> |
+                            <print_stmt> |
+                            <assign> |
+                            <expr>
+
+<func_declare>          ::= "def" <identifier> "(" <parameter_list>? ")" <code_block>
+<func_call>             ::= <identifier> "(" <argument_list>? ")"
+<parameter_list>        ::= <identifier> | <identifier> "," <parameter_list>
+<argument_list>         ::= <expr> | <expr> "," <argument_list>
+<return_stmt>           ::= "return" <expr>
+
+<code_block>            ::= "{" <statement_list> "}"
+
+<for_loop>              ::= "for" "(" <identifier> "=" <expr> "," <expr> ")" <code_block>
+
+<while_loop>            ::= "while" "(" <expr> ")" <code_block>
+
+<if_statements>         ::= <if_block> <elif_block>* <else_block>?
+<if_block>              ::= "if" "(" <expr> ")" <code_block>
+<elif_block>            ::= "elif" "(" <expr> ")" <code_block>
+<else_block>            ::= "else" <code_block>
+
+<print_stmt>            ::= "print" "(" <expr> ")"
+<assign>                ::= <identifier> "=" <statement>
+
+<expr>                  ::= <logic>
+<logic>                 ::= <logic> <log_operator> <compare> | <compare>
+<compare>               ::= "not" <compare> | <compare> <comp_operator> <arith_expr> | <arith_expr>
+<arith_expr>            ::= <arith_expr> "+" <term> | <arith_expr> "-" <term> | <term>
+<term>                  ::= <term> "*" <factor> | <term> "/" <factor> | <factor>
+<factor>                ::= "-" <factor> | "+" <factor> | <power>
+<power>                 ::= <power> "^" <atom> | <atom>
+<atom>                  ::= "(" <expr> ")" | <func_call> | <identifier> | <return_stmt> | <datatype>
+
+<comp_operator>         ::= "==" | "!=" | ">" | ">=" | "<" | "<="
+<log_operator>          ::= "or" | "and"
+
+<datatype>              ::= <number> | <string> | <bool> | <list>
+<identifier>            ::= <letter> <identifier> | <letter>
+
+<list>                  ::= "[" <expr> {"," <expr>}* "]" | "[" "]"
+<number>                ::= <integer> | <float>
+<string>                ::= '"' <any_char>* '"' | "'" <any_char>* "'"
+<bool>                  ::= "true" | "false"
+
+<float>                 ::= <integer> "." <integer>
+<integer>               ::= <digit> <integer> | <digit>
+<digit>                 ::= [0-9]
+<letter>                ::= [a-z] | [A-Z]
